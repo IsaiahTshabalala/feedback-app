@@ -45,7 +45,6 @@ function FeedbackForm() {
     };
 
     updateFeedbackData(feedback);
-
     setReview('');
     setBtnDisabled(true);
     setRating(10);

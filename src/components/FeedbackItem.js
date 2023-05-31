@@ -11,8 +11,9 @@ function FeedbackItem({feedbackItem}) {
 
 
   function deleteItem(e){
-    if (window.confirm('Are you sure you want to delete this item?'))
+    if (window.confirm('Are you sure you want to delete this item?')){
       deleteFeedback(feedbackItem.id);
+    } // if (window.confirm('Are you sure you want to delete this item?'))
   }
 
   return (
