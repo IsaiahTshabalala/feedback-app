@@ -16,7 +16,7 @@ import { FaQuestion } from "react-icons/fa";
 function App(){
 
     return (
-        <div className="container">
+        <div className="container text-bg-dark">
             <FeedbackProvider>
                 <RouterProvider
                     router={createBrowserRouter(

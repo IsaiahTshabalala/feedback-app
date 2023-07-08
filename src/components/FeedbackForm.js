@@ -11,15 +11,15 @@ function FeedbackForm() {
   const [message, setMessage] = useState(null);
   const [rating, setRating] = useState(10);
 
-  const {updateFeedbackData, editableItem} = useContext(FeedbackContext);
+  const {addNewFeedback, updateFeedback, editableFeedback} = useContext(FeedbackContext);
 
   useEffect(() => {
-    if (editableItem.editable === true){
-      setReview(editableItem.item.text);
-      setRating(editableItem.item.rating);
+    if (editableFeedback !== null && editableFeedback !== undefined){
+      setReview(editableFeedback.text);
+      setRating(editableFeedback.rating);
       setBtnDisabled(false);
-    } // if (editableItem.editable == true)
-  }, [editableItem]); // useEffect()
+    } // if (editableFeedback.id === undefined)
+  }, [editableFeedback]); // useEffect()
   
 
   function updateReview(e){
@@ -44,7 +44,11 @@ function FeedbackForm() {
       text: review,
     };
 
-    updateFeedbackData(feedback);
+    if (editableFeedback !== null)
+      updateFeedback(feedback);
+    else
+      addNewFeedback(feedback);
+
     setReview('');
     setBtnDisabled(true);
     setRating(10);

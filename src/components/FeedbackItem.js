@@ -7,7 +7,7 @@ import FeedbackContext from '../context/FeedbackProvider';
 import Card from './shared/Card';
 
 function FeedbackItem({feedbackItem}) {
-  const {deleteFeedback, setEditable} = useContext(FeedbackContext);
+  const {setEditable, deleteFeedback} = useContext(FeedbackContext);
 
 
   function deleteItem(e){
@@ -20,7 +20,7 @@ function FeedbackItem({feedbackItem}) {
     <Card cardReverse={true}>
       <div className='num-display'>{feedbackItem.rating}</div>
       <button className='edit'>
-        <FaEdit color='Purple' onClick={e=> setEditable(feedbackItem)}/>
+        <FaEdit color='Purple' onClick={e => setEditable(feedbackItem)}/>
       </button>
       <button className='close' onClick={deleteItem}>
         <FaTimes color='Purple'/>
